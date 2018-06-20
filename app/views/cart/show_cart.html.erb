@@ -15,6 +15,9 @@
         <td><%= Recipe.find(pizza["recipe_id"]).name %></td>
         <td><%= Crust.find(pizza["crust_id"]).name %></td>
         <td><%= Recipe.find(pizza["recipe_id"]).price + Crust.find(pizza["crust_id"]).price%></td>
+        <% pizza_index = @cart.index(pizza) %>
+        <td><%= button_to 'X', "/cart/delete_item/" + pizza_index.to_s , method: :delete%></td>
+
       </tr>
     <% end %>
   </tbody>
