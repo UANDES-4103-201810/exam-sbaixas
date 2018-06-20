@@ -1,0 +1,20 @@
+<table class="table">
+  <h1>Our Recipes</h1>
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Price</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |pizza| %>
+      <tr>
+        <td><%= pizza.name %></td>
+        <td><%= pizza.price %></td>
+        <td>add to shopping cart</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
