@@ -1,0 +1,21 @@
+<h1>Your Cart</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Pizza</th>
+      <th>Crust</th>
+      <th>Price</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.each do |pizza| %>
+      <tr>
+        <td><%= Recipe.find(pizza["recipe_id"]).name %></td>
+        <td><%= Crust.find(pizza["crust_id"]).name %></td>
+        <td><%= Recipe.find(pizza["recipe_id"]).price + Crust.find(pizza["crust_id"]).price%></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>

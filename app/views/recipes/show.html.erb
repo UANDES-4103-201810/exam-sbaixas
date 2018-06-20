@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<%= form_for @pizza, url: cart_add_to_cart_path(@pizza) do |form| %>
+
+  	<p>
+	  <strong>Name:</strong>
+	  <%= @recipe.name %>
+	</p>
+
+	<p>
+	  <strong>Price:</strong>
+	  <%= @recipe.price %>
+	</p>
+	<p>
+	  <strong>Ingredients:</strong>
+	  <ul>
+	  	<% @recipe.ingredients.each do |i| %>
+	  	<li><%= i.name %></li>
+	  	<% end %>
+	  </ul> 
+	</p>
+	  <% if customer_signed_in? %>
+	<p>
+	  <strong>Crusts:</strong>
+	  <ul>
+	  	<% @crusts.each do |i| %>
+	  		<li><%= form.radio_button :crust_id, i.id %> <%=i.name %> <%=i.price %></li>
+	  	<% end %>
+	  </ul> 
+	</p>
+	<% end %>
+	<%= form.hidden_field :recipe_id, :value =>@recipe.id %>
+  <% if customer_signed_in? %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Back', root_path %>
+

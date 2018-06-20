@@ -28,7 +28,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<% if customer_signed_in? %>
 						<li>
-							<%= current_user.nickname %>
+							<%= link_to "My Cart", cart_show_cart_path %>
 						</li>
 						<li><%= link_to "Sign out", destroy_customer_session_path, :method => :delete %></li>
 					<% else %>
